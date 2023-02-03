@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.main`
-  flex: 1;
+  height: 6.5rem;
+  padding: 2rem 0;
 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`
+
+export const LogoContainer = styled.div``
+
+export const CityAndCartContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3.5rem;
-  }
+  gap: 0.75rem;
 `

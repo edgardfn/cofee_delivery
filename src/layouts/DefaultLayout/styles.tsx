@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
 export const LayoutContainer = styled.div`
-  max-width: 74rem;
-  height: calc(100vh - 10rem);
-  margin: 5rem auto;
-  padding: 2.5rem;
+  padding: 0 10rem;
 
-  background: ${(props) => props.theme['yellow-dark']};
-  border-radius: 8px;
+  background: ${(props) => props.theme.white};
 
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 `
