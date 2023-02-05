@@ -6,7 +6,7 @@
 
 ## 💻 Sobre o projeto
 
-Cofee Delivery - é um sistema de cafeteria, com comprar de cafe e carrinho de compras.
+Cofee Delivery - é um sistema de cafeteria, com listagem de cafés para compras e carrinho de compras.
 
 Projeto desenvolvido no curso da trilha Ignite da Rocketseat.
 
