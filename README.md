@@ -1,15 +1,22 @@
 <h4 align="center"> 
-	🚧 Consulta CEP 1.0 🚀 em construção... 🚧
+	🚧 Cofee Delivery 1.0 🚀 em construção... 🚧
 </h4>
 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/edgardfn/consulta_cep/blob/main/LICENSE) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/edgardfn/cofee_delivery/blob/main/LICENSE) 
 
 ## 💻 Sobre o projeto
 
-Cofee CEP - é um sistema de consulta de CEP.
+Cofee Delivery - é um sistema de cafeteria, com comprar de cafe e carrinho de compras.
+
+Projeto desenvolvido no curso da trilha Ignite da Rocketseat.
 
 ## 🎨 Layout
 
+O layout da aplicação está disponível no Figma:
+
+<a href="https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate">
+  <img src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
+</a>
 
 ## 🛠 Tecnologias
 
@@ -24,10 +31,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode][vsco
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/edgardfn/consulta_cep.git
+$ git clone https://github.com/edgardfn/cofee_delivery.git
 
 # Acesse a pasta raiz do projeto no seu terminal/cmd
-$ cd consulta_cep
+$ cd cofee_delivery
 
 # Instale as dependências
 $ npm install
