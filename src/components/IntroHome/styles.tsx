@@ -5,7 +5,7 @@ type TypeIconContainer = {
 }
 
 export const IntroContainer = styled.div`
-  height: 34rem;
+  max-height: 34rem;
   padding: 6rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -41,7 +41,7 @@ export const TextSecondaryContainer = styled.div`
 
 export const IconsContainer = styled.div`
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 45% 55%;
   align-content: end;
   height: 100%;
 `
@@ -81,11 +81,12 @@ export const IntroContainerImage = styled.div`
   padding-left: 3.5rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: right;
 
   img {
+    max-height: 360px;
     width: 100%;
-    background-position: center;
-    background-size: cover;
+    /* background-position: center;
+    background-size: cover; */
   }
 `
