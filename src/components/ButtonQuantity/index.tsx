@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {
   ButtonQuantityContainer,
   ContainerButtonAddItem,
@@ -6,31 +6,41 @@ import {
   ContainerQuantityContent,
 } from './styles'
 import { Minus, Plus } from 'phosphor-react'
+import { CoffeesContext } from '../../contexts/CoffeesContext'
 
-export function ButtonQuantity() {
-  const [quantityItem, SetQuantityItem] = useState(0)
+interface PropsButtonQuantity {
+  quantity: number
+  id: string
+}
 
-  const handleSubtractItem = () => {
+export function ButtonQuantity({ quantity, id }: PropsButtonQuantity) {
+  const [quantityItem, SetQuantityItem] = useState(quantity)
+  const { addItemToSelectedCoffee, removeItemToSelectedCoffee } =
+    useContext(CoffeesContext)
+
+  const handleRemoveItemToSelectedCoffee = () => {
     if (quantityItem > 0) {
       SetQuantityItem((state) => {
         return state - 1
       })
+      removeItemToSelectedCoffee(id)
     }
   }
 
-  const handleAddItem = () => {
+  const handleAddItemToSelectedCoffee = () => {
     SetQuantityItem((state) => {
       return state + 1
     })
+    addItemToSelectedCoffee(id)
   }
 
   return (
     <ButtonQuantityContainer>
-      <ContainerButtonSubtractItem onClick={handleSubtractItem}>
+      <ContainerButtonSubtractItem onClick={handleRemoveItemToSelectedCoffee}>
         <Minus size={14} weight="bold" />
       </ContainerButtonSubtractItem>
       <ContainerQuantityContent>{quantityItem}</ContainerQuantityContent>
-      <ContainerButtonAddItem onClick={handleAddItem}>
+      <ContainerButtonAddItem onClick={handleAddItemToSelectedCoffee}>
         <Plus size={14} weight="bold" />
       </ContainerButtonAddItem>
     </ButtonQuantityContainer>

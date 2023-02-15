@@ -12,10 +12,11 @@ import {
 } from './styles'
 import { ShoppingCart } from 'phosphor-react'
 import { ButtonQuantity } from '../ButtonQuantity'
-import { interfaceCoffee } from '../CoffeeList'
+import { Coffee } from '../../reducers/coffees/reducer'
+import { NavLink } from 'react-router-dom'
 
 interface PropsCardCoffee {
-  coffee: interfaceCoffee
+  coffee: Coffee
 }
 
 export function CardCoffee({ coffee }: PropsCardCoffee) {
@@ -39,11 +40,15 @@ export function CardCoffee({ coffee }: PropsCardCoffee) {
           </div>
         </ContainerValue>
         <ContainerQuantity>
-          <ButtonQuantity />
+          <ButtonQuantity quantity={coffee.quantity} id={coffee.id} />
         </ContainerQuantity>
-        <ContainerIconCart>
-          <ShoppingCart size={22} weight="fill" />
-        </ContainerIconCart>
+        <nav>
+          <NavLink to="/checkout" title="Carrinho de Compras">
+            <ContainerIconCart>
+              <ShoppingCart size={22} weight="fill" />
+            </ContainerIconCart>
+          </NavLink>
+        </nav>
       </ContainerBuy>
     </CardCoffeeContainer>
   )

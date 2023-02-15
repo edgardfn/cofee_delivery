@@ -1,8 +1,12 @@
 import { ButtonCartContainer, ContainerNumberShopping } from './styles'
 import { ShoppingCart } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { CoffeesContext } from '../../contexts/CoffeesContext'
 
 export function ButtonCart() {
+  const { coffees, NumberTotalCofeesBought } = useContext(CoffeesContext)
+
   return (
     <ButtonCartContainer>
       <nav>
@@ -10,7 +14,9 @@ export function ButtonCart() {
           <ShoppingCart size={22} weight="fill" />
         </NavLink>
       </nav>
-      <ContainerNumberShopping visible={true}>{3}</ContainerNumberShopping>
+      <ContainerNumberShopping visible={true}>
+        {NumberTotalCofeesBought}
+      </ContainerNumberShopping>
     </ButtonCartContainer>
   )
 }

@@ -1,7 +1,9 @@
+import { useContext } from 'react'
+import { CoffeesContext } from '../../contexts/CoffeesContext'
 import { CardCoffee } from '../CardCoffee'
 import { CoffeeListContainer, CoffeeListContent, TitleText } from './styles'
 
-export interface interfaceCoffee {
+export interface Coffee {
   id: string
   image: string
   tags: string[]
@@ -12,10 +14,12 @@ export interface interfaceCoffee {
 }
 
 interface PropsCoffeeList {
-  coffees: interfaceCoffee[]
+  coffees: Coffee[]
 }
 
-export function CoffeeList({ coffees }: PropsCoffeeList) {
+export function CoffeeList() {
+  const { coffees } = useContext(CoffeesContext)
+
   return (
     <CoffeeListContainer>
       <TitleText>Nossos cafés</TitleText>
