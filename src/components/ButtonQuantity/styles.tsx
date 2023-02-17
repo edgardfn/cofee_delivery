@@ -20,6 +20,10 @@ export const ContainerButtonSubtractItem = styled.button`
   color: ${(props) => props.theme.purple};
 
   cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme['purple-dark']};
+  }
 `
 
 export const ContainerQuantityContent = styled.div`
@@ -40,7 +44,7 @@ export const ContainerQuantityContent = styled.div`
 `
 
 export const ContainerButtonAddItem = styled.button`
-  height: 100%;
+  /* height: 100%; */
   border: none;
   background-color: transparent;
   padding-left: 0.5rem;
@@ -49,4 +53,8 @@ export const ContainerButtonAddItem = styled.button`
   color: ${(props) => props.theme.purple};
 
   cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme['purple-dark']};
+  }
 `

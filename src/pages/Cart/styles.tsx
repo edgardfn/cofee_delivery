@@ -1,17 +1,28 @@
 import styled from 'styled-components'
 
-export const CartContainer = styled.main`
-  flex: 1;
+export const CartContainer = styled.div`
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 57% 43%;
+  gap: 2rem;
+`
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+export const ContainerCompleteYourOrder = styled.div`
+  font-family: 'Baloo 2', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3rem;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3.5rem;
-  }
+  color: ${(props) => props.theme['base-subtitle']};
+`
+
+export const ContainerSelectedCoffees = styled.div`
+  font-family: 'Baloo 2', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3rem;
+
+  color: ${(props) => props.theme['base-subtitle']};
 `

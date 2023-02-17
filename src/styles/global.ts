@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
     :focus {
         outline: 0;
-        box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-dark']};
+        /* box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-dark']}; */
     }
 
     body {
@@ -27,5 +27,12 @@ export const GlobalStyle = createGlobalStyle`
     header {
         font-family: 'Baloo 2', cursive;
         
+    }
+
+    input {
+
+        &:focus {
+            border: 1px solid ${(props) => props.theme['yellow-dark']};
+        }
     }
 `
