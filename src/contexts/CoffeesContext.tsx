@@ -19,6 +19,7 @@ import { coffeesReducer } from '../reducers/coffees/reducer'
 import {
   addCoffeeAction,
   removeCoffeeAction,
+  resetQuantityOfSpecificCoffeeAction,
 } from '../reducers/coffees/actions'
 
 interface CoffeesContextType {
@@ -26,6 +27,7 @@ interface CoffeesContextType {
   addItemToSelectedCoffee: (idCoffeeSelected: string) => void
   removeItemToSelectedCoffee: (idCoffeeSelected: string) => void
   NumberTotalCofeesBought: number
+  resetQuantityToSelectedCoffee: (idCoffeeSelected: string) => void
 }
 
 export const CoffeesContext = createContext({} as CoffeesContextType)
@@ -183,12 +185,15 @@ export function CoffeesContextProvider({
   })
 
   function addItemToSelectedCoffee(id: string) {
-    console.log('id ====', id)
     dispatch(addCoffeeAction(id))
   }
 
   function removeItemToSelectedCoffee(id: string) {
     dispatch(removeCoffeeAction(id))
+  }
+
+  function resetQuantityToSelectedCoffee(id: string) {
+    dispatch(resetQuantityOfSpecificCoffeeAction(id))
   }
 
   return (
@@ -198,6 +203,7 @@ export function CoffeesContextProvider({
         addItemToSelectedCoffee,
         removeItemToSelectedCoffee,
         NumberTotalCofeesBought,
+        resetQuantityToSelectedCoffee,
       }}
     >
       {children}

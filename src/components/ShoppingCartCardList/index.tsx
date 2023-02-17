@@ -24,7 +24,7 @@ export function ShoppingCartCardList({ coffee }: ShoppingCartCardListProps) {
           <NameCoffee>{coffee.name}</NameCoffee>
           <ButtonsContainer>
             <ButtonQuantity quantity={coffee.quantity} id={coffee.id} />
-            <RemoveCoffeeButton />
+            <RemoveCoffeeButton idCoffee={coffee.id} />
           </ButtonsContainer>
         </MainInformationCoffee>
       </MainContainer>
