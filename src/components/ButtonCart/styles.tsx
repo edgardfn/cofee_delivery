@@ -12,10 +12,14 @@ export const ButtonCartContainer = styled.button`
   cursor: pointer;
   color: ${(props) => props.theme['yellow-dark']};
 
-  &:hover {
-    background-color: ${(props) => props.theme.purple};
-    color: ${(props) => props.theme.white};
+  svg {
+    color: ${(props) => props.theme['yellow-dark']};
   }
+
+  // &:hover {
+  //   background-color: ${(props) => props.theme.purple};
+  //   color: ${(props) => props.theme.white};
+  // }
 
   position: relative;
 `

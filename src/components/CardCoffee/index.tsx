@@ -14,12 +14,18 @@ import { ShoppingCart } from 'phosphor-react'
 import { ButtonQuantity } from '../ButtonQuantity'
 import { Coffee } from '../../reducers/coffees/reducer'
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { AddressAndPaymentContext } from '../../contexts/AddressAndPaymentContext'
 
 interface PropsCardCoffee {
   coffee: Coffee
 }
 
 export function CardCoffee({ coffee }: PropsCardCoffee) {
+  const { routeIfThereAreSelectedCoffees } = useContext(
+    AddressAndPaymentContext,
+  )
+
   return (
     <CardCoffeeContainer>
       <ContainerCoffeeImage>
@@ -43,7 +49,10 @@ export function CardCoffee({ coffee }: PropsCardCoffee) {
           <ButtonQuantity quantity={coffee.quantity} id={coffee.id} />
         </ContainerQuantity>
         <nav>
-          <NavLink to="/checkout" title="Carrinho de Compras">
+          <NavLink
+            to={routeIfThereAreSelectedCoffees}
+            title="Carrinho de Compras"
+          >
             <ContainerIconCart>
               <ShoppingCart size={22} weight="fill" />
             </ContainerIconCart>

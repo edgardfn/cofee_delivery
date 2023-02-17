@@ -124,4 +124,8 @@ export const ContainerIconCart = styled.div`
   padding: 0.5rem;
   width: max-content;
   border-radius: 6px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.purple};
+  }
 `

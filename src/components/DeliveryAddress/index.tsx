@@ -17,62 +17,19 @@ import {
 } from './styles'
 import { MapPinLine } from 'phosphor-react'
 import InputMask from 'react-input-mask'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import axios from 'axios'
-
-interface addressInteface {
-  bairro: string
-  complemento?: string
-  localidade: string
-  logradouro: string
-  uf: string
-}
+import { AddressAndPaymentContext } from '../../contexts/AddressAndPaymentContext'
 
 export function DeliveryAddress() {
-  const [cep, setCep] = useState('')
-  const [cepFound, setCepFound] = useState(false)
-  const [address, setAddress] = useState<addressInteface>({
-    bairro: '',
-    complemento: '',
-    localidade: '',
-    logradouro: '',
-    uf: '',
-  })
-
-  if (!cepFound && cep.length === 9) {
-    const cepWithoutSpecialCharacter = cep.replace('-', '')
-    axios
-      .get(`https://viacep.com.br/ws/${cepWithoutSpecialCharacter}/json/`)
-      .then((res) => {
-        const data = res.data
-        console.log(data)
-        if ('erro' in data) {
-          console.log('cep não encontrado.')
-        } else {
-          const addressData: addressInteface = data
-          setAddress({
-            bairro: addressData.bairro,
-            complemento: addressData.complemento,
-            localidade: addressData.localidade,
-            logradouro: addressData.logradouro,
-            uf: addressData.uf,
-          })
-          setCepFound(true)
-        }
-      })
-  }
-
-  if (cepFound && cep.length < 9) {
-    setAddress({
-      bairro: '',
-      complemento: '',
-      localidade: '',
-      logradouro: '',
-      uf: '',
-    })
-    setCepFound(false)
-  }
-
+  const {
+    addNewValidZipCode,
+    cep,
+    deliveryAddress,
+    cepFound,
+    addHouseNumberInAddress,
+    addComplementInAddress,
+  } = useContext(AddressAndPaymentContext)
   return (
     <DeliveryAddressContainer>
       <DeliveryAddressTitleContainer>
@@ -90,7 +47,7 @@ export function DeliveryAddress() {
             mask="99999-999"
             placeholder="CEP"
             list="cep-suggestions"
-            onChange={(e) => setCep(e.target.value)}
+            onChange={(e) => addNewValidZipCode(e.target.value)}
             value={cep}
             maskChar=""
           ></InputMask>
@@ -99,7 +56,7 @@ export function DeliveryAddress() {
           <StreetInput
             placeholder="Rua"
             type="text"
-            value={address.logradouro}
+            value={deliveryAddress.logradouro}
             disabled
           ></StreetInput>
         </div>
@@ -108,28 +65,35 @@ export function DeliveryAddress() {
             placeholder="Número"
             type="number"
             disabled={!cepFound}
+            value={deliveryAddress.number}
+            onChange={(e) => addHouseNumberInAddress(e.target.value)}
           ></NumberInput>
           <ComplementInput
             placeholder="Complemento"
             type="text"
-            value={address.complemento}
+            value={deliveryAddress.complemento}
             disabled={!cepFound}
+            onChange={(e) => addComplementInAddress(e.target.value)}
           ></ComplementInput>
         </NumberAndComplementContainer>
         <DistrictAndCityAndStateContainer>
           <DistrictInput
             placeholder="Bairro"
             type="text"
-            value={address.bairro}
+            value={deliveryAddress.bairro}
             disabled
           ></DistrictInput>
           <CityInput
             placeholder="Cidade"
             type="text"
-            value={address.localidade}
+            value={deliveryAddress.localidade}
             disabled
           ></CityInput>
-          <StateInput placeholder="UF" value={address.uf} disabled></StateInput>
+          <StateInput
+            placeholder="UF"
+            value={deliveryAddress.uf}
+            disabled
+          ></StateInput>
         </DistrictAndCityAndStateContainer>
       </DeliveryAddressFormContainer>
     </DeliveryAddressContainer>

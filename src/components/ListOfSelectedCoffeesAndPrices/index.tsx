@@ -23,7 +23,13 @@ export function ListOfSelectedCoffeesAndPrice() {
     valueOfAllCoffees,
     deliveryPrice,
     finalOrderTotal,
+    disableConfirmOrderButton,
   } = useContext(AddressAndPaymentContext)
+
+  const handleClick = () => {
+    console.log('clicou')
+  }
+
   return (
     <MainContainer>
       {coffeesFilteredByExistingQuantity.map((coffee) => {
@@ -59,7 +65,12 @@ export function ListOfSelectedCoffeesAndPrice() {
         </FinalOrderTotalContainer>
       </FinalValuesContainer>
       <ConfirmButtonContainer>
-        <ConfirmButton>confirmar pedido</ConfirmButton>
+        <ConfirmButton
+          disabled={disableConfirmOrderButton}
+          onClick={handleClick}
+        >
+          confirmar pedido
+        </ConfirmButton>
       </ConfirmButtonContainer>
     </MainContainer>
   )

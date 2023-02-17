@@ -12,10 +12,14 @@ import {
 } from '../reducers/addressAndPayment/reducer'
 import {
   addAddressAction,
+  addComplementInAddressAction,
   addFormOfPaymentAction,
+  addHouseNumberInAddressAction,
 } from '../reducers/addressAndPayment/actions'
 import { CoffeesContext } from './CoffeesContext'
 import { Coffee } from '../reducers/coffees/reducer'
+import axios from 'axios'
+import { redirect } from 'react-router-dom'
 
 interface AddressAndPaymentContextType {
   deliveryAddress: address
@@ -28,6 +32,11 @@ interface AddressAndPaymentContextType {
   valueOfAllCoffees: number
   deliveryPrice: number
   finalOrderTotal: number
+  cepFound: true | false
+  addHouseNumberInAddress: (numero: string) => void
+  addComplementInAddress: (complement: string) => void
+  disableConfirmOrderButton: true | false
+  routeIfThereAreSelectedCoffees: string
 }
 
 export const AddressAndPaymentContext = createContext(
@@ -43,6 +52,7 @@ export function AddressAndPaymentContextProvider({
 }: AddressAndPaymentContextTypeContextProviderProps) {
   const { coffees } = useContext(CoffeesContext)
   const [cep, setCep] = useState('')
+  const [cepFound, setCepFound] = useState(false)
   const [addressAndPaymentState, dispatch] = useReducer(
     addressAndPaymentReducer,
     {
@@ -53,6 +63,7 @@ export function AddressAndPaymentContextProvider({
         logradouro: '',
         uf: '',
         cep: '',
+        number: '',
       },
       formOfPayment: '',
     },
@@ -72,6 +83,46 @@ export function AddressAndPaymentContextProvider({
     setCep(cep)
   }
 
+  function addHouseNumberInAddress(numero: string) {
+    console.log(numero)
+    dispatch(addHouseNumberInAddressAction(numero))
+  }
+
+  function addComplementInAddress(complement: string) {
+    dispatch(addComplementInAddressAction(complement))
+  }
+
+  if (!cepFound && cep.length === 9) {
+    const cepWithoutSpecialCharacter = cep.replace('-', '')
+    axios
+      .get(`https://viacep.com.br/ws/${cepWithoutSpecialCharacter}/json/`)
+      .then((res) => {
+        const data = res.data
+        if ('erro' in data) {
+          console.log('cep não encontrado.')
+        } else {
+          let addressData: address = data
+          addressData = { ...addressData, number: '' }
+          addAddress(addressData)
+          setCepFound(true)
+        }
+      })
+  }
+
+  if (cepFound && cep.length < 9) {
+    addAddress({
+      bairro: '',
+      complemento: '',
+      localidade: '',
+      logradouro: '',
+      uf: '',
+      cep: '',
+      number: '',
+    })
+
+    setCepFound(false)
+  }
+
   const coffeesFilteredByExistingQuantity = coffees.filter(
     (coffee) => coffee.quantity > 0,
   )
@@ -84,9 +135,22 @@ export function AddressAndPaymentContextProvider({
     }
   })
 
+  let routeIfThereAreSelectedCoffees = '/checkout'
+  if (coffeesFilteredByExistingQuantity.length === 0) {
+    routeIfThereAreSelectedCoffees = '#'
+  }
+
   const deliveryPrice = 3.5
 
   const finalOrderTotal = valueOfAllCoffees + deliveryPrice
+
+  let disableConfirmOrderButton = true
+
+  if (address.number === '' || formOfPayment.formOfPayment === undefined) {
+    disableConfirmOrderButton = true
+  } else {
+    disableConfirmOrderButton = false
+  }
 
   return (
     <AddressAndPaymentContext.Provider
@@ -99,11 +163,19 @@ export function AddressAndPaymentContextProvider({
 
         cep,
         addNewValidZipCode,
+        cepFound,
 
         coffeesFilteredByExistingQuantity,
         valueOfAllCoffees,
         deliveryPrice,
         finalOrderTotal,
+
+        addHouseNumberInAddress,
+        addComplementInAddress,
+
+        disableConfirmOrderButton,
+
+        routeIfThereAreSelectedCoffees,
       }}
     >
       {children}

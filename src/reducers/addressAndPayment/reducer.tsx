@@ -7,6 +7,7 @@ export interface address {
   logradouro: string
   uf: string
   cep: string
+  number: string
 }
 
 export interface payment {
@@ -34,6 +35,20 @@ export function addressAndPaymentReducer(
       return {
         ...state,
         formOfPayment: action.payload.formOfPayment,
+      }
+    }
+
+    case ActionTypes.ADD_HOUSE_NUMBER_IN_ADDRESS: {
+      return {
+        ...state,
+        address: { ...state.address, number: action.payload.houseNumber },
+      }
+    }
+
+    case ActionTypes.ADD_COMPLEMENT_IN_ADDRESS: {
+      return {
+        ...state,
+        address: { ...state.address, complemento: action.payload.houseNumber },
       }
     }
 
