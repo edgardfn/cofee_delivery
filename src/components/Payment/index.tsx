@@ -7,12 +7,14 @@ import {
   TitleContainer,
 } from './styles'
 import { CurrencyDollar, CreditCard, Bank, Money } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { AddressAndPaymentContext } from '../../contexts/AddressAndPaymentContext'
 import { payment } from '../../reducers/addressAndPayment/reducer'
 
 export function Payment() {
-  const { addFormOfPayment } = useContext(AddressAndPaymentContext)
+  const { addFormOfPayment, formOfPayment } = useContext(
+    AddressAndPaymentContext,
+  )
 
   const handleClickPaymentMethod = (paymentMethod: payment) => {
     addFormOfPayment(paymentMethod)
@@ -30,12 +32,14 @@ export function Payment() {
       <OptionsButtonsContainer>
         <PaymentMethodButton
           onClick={() => handleClickPaymentMethod({ formOfPayment: 'credito' })}
+          isFocus={formOfPayment.formOfPayment === 'credito'}
         >
           <CreditCard weight="regular" size={16} />
           CARTÃO DE CRÉDITO
         </PaymentMethodButton>
         <PaymentMethodButton
           onClick={() => handleClickPaymentMethod({ formOfPayment: 'debito' })}
+          isFocus={formOfPayment.formOfPayment === 'debito'}
         >
           <Bank weight="regular" size={16} />
           CARTÃO DE DÉBITO
@@ -44,6 +48,7 @@ export function Payment() {
           onClick={() =>
             handleClickPaymentMethod({ formOfPayment: 'dinheiro' })
           }
+          isFocus={formOfPayment.formOfPayment === 'dinheiro'}
         >
           <Money weight="regular" size={16} />
           DINHEIRO

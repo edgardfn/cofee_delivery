@@ -146,7 +146,11 @@ export function AddressAndPaymentContextProvider({
 
   let disableConfirmOrderButton = true
 
-  if (address.number === '' || formOfPayment.formOfPayment === undefined) {
+  if (
+    address.number === '' ||
+    formOfPayment.formOfPayment === undefined ||
+    coffeesFilteredByExistingQuantity.length === 0
+  ) {
     disableConfirmOrderButton = true
   } else {
     disableConfirmOrderButton = false

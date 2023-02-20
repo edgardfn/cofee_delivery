@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+interface ButtonProps {
+  isFocus: true | false
+}
 
 export const PaymentContainer = styled.div`
   margin-top: 1rem;
@@ -44,7 +48,7 @@ export const OptionsButtonsContainer = styled.div`
   margin-top: 2rem;
 `
 
-export const PaymentMethodButton = styled.button`
+export const PaymentMethodButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -75,4 +79,12 @@ export const PaymentMethodButton = styled.button`
     background-color: ${(props) => props.theme['purple-light']};
     border: 1px solid ${(props) => props.theme.purple};
   }
+
+  ${(props) => {
+    if (props.isFocus)
+      return `
+        background-color: ${props.theme['purple-light']};
+        border: 1px solid ${props.theme.purple};
+      `
+  }}
 `
