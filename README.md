@@ -21,6 +21,17 @@ O layout da aplicação está disponível no Figma:
 ### Web
 
 
+  <img  title="HomeImage" src="./src/assets/print01.png" width="90%">
+
+  <img  title="ListCoffeePrint" src="./src/assets/print02.png" width="90%">
+  
+  <img  title="CartPrint" src="./src/assets/print03.png" width="90%">
+  
+  <img  title="CartPrint02" src="./src/assets/print04.png" width="90%">
+  
+  <img  title="SucessPrint" src="./src/assets/print05.png" width="90%">
+
+
 
 ## 🛠 Tecnologias
 
