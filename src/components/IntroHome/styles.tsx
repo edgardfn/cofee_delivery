@@ -10,8 +10,11 @@ export const IntroContainer = styled.div`
   grid-template-columns: 53% 47%;
 `
 export const IntroContainerMain = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  /* display: grid;
+  grid-template-rows: 1fr 1fr; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const TextContainer = styled.div`
