@@ -1,12 +1,12 @@
 <h4 align="center"> 
-	🚧 Cofee Delivery 1.0 🚀 em construção... 🚧
+	:coffee: Cofee Delivery 1.0 :coffee:
 </h4>
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/edgardfn/cofee_delivery/blob/main/LICENSE) 
 
 ## 💻 Sobre o projeto
 
-Cofee Delivery - é um sistema de cafeteria, com listagem de cafés para compras e carrinho de compras.
+Cofee Delivery :coffee: - é um sistema de cafeteria, com listagem de cafés para compras, podendo selecionar várias unidades de um único café, tem sesssão de carrinho de compras com endereço de entrega que faz a busca automática pelo cep usando a api [ViaCEP], com opção também de escolher a forma de pagamento e listagem dos cafés selecionados podendo alterar a quantidade e excluir todos de um café específico, mostrando também o valor total do pedido e ao finalizar é levado a página com dados como endereço de entrega selecionado e forma de pagamento.
 
 Projeto desenvolvido no curso da trilha Ignite da Rocketseat.
 
@@ -18,8 +18,33 @@ O layout da aplicação está disponível no Figma:
   <img src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
 </a>
 
+### Web
+
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img  title="HomeImage" src="./src/assets/print01.png" width="800px">
+
+  <img  title="ListCoffeePrint" src="./src/assets/print02.png" width="800px">
+  
+  <img  title="CartPrint" src="./src/assets/print03.png" width="800px">
+  
+  <img  title="CartPrint02" src="./src/assets/print04.png" width="800px">
+  
+  <img  title="SucessPrint" src="./src/assets/print05.png" width="800px">
+</p>
+
 ## 🛠 Tecnologias
 
+- [ReactJS]
+- [Typescript]
+- [React Router DOM]
+- [Styled Components]
+- [Context API]
+- [Redux]
+- [Effect Hook]
+- [Axios]
+- [Phosphor Icons]
+- [React Input Mask]
+- [UUID]
 
 ## 🚀 Como executar o projeto
 
@@ -54,7 +79,7 @@ Feito com ❤️ por Edgard Finotti Neto 👋🏽 [Entre em contato!](https://ww
 [nodejs]: https://nodejs.org/
 [Typescript]: https://www.typescriptlang.org/
 [expo]: https://expo.io/
-[reactjs]: https://reactjs.org
+[ReactJS]: https://reactjs.org
 [rn]: https://facebook.github.io/react-native/
 [yarn]: https://yarnpkg.com/
 [vscode]: https://code.visualstudio.com/
@@ -67,3 +92,11 @@ Feito com ❤️ por Edgard Finotti Neto 👋🏽 [Entre em contato!](https://ww
 [React Router DOM]:https://github.com/remix-run/react-router
 [React Hook Form]:https://github.com/react-hook-form/react-hook-form
 [Validação de Formulários com Biblioteca Zod]:https://github.com/colinhacks/zod
+[ViaCEP]:https://viacep.com.br/
+[Axios]: https://github.com/axios/axios
+[Phosphor Icons]: https://github.com/phosphor-icons/react
+[React Input Mask]: https://github.com/sanniassin/react-input-mask
+[UUID]: https://github.com/uuidjs/uuid
+[Context API]: https://reactjs.org/docs/context.html
+[Redux]: https://react-redux.js.org/
+[Effect Hook]: https://reactjs.org/docs/hooks-effect.html
