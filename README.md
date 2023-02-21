@@ -18,7 +18,7 @@ O layout da aplicação está disponível no Figma:
   <img src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
 </a>
 
-### Web
+### Prints Web
 
 
   <img  title="HomeImage" src="./src/assets/print01.png" width="90%">
