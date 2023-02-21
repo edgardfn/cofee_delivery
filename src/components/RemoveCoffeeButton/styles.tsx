@@ -20,6 +20,8 @@ export const RemoveCoffeeButtonContainer = styled.button`
 
   line-height: 0;
 
+  cursor: pointer;
+
   svg {
     color: ${(props) => props.theme.purple};
   }

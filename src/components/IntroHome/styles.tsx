@@ -5,10 +5,9 @@ type TypeIconContainer = {
 }
 
 export const IntroContainer = styled.div`
-  max-height: 34rem;
   padding: 6rem 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 53% 47%;
 `
 export const IntroContainerMain = styled.div`
   display: grid;
@@ -27,7 +26,7 @@ export const TitleContainer = styled.div`
   font-style: normal;
   font-weight: 800;
   font-size: 3rem;
-  line-height: 3.8rem;
+  line-height: 3.9rem;
 `
 
 export const TextSecondaryContainer = styled.div`
@@ -35,7 +34,7 @@ export const TextSecondaryContainer = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 1.25rem;
-  line-height: 1.6rem;
+  line-height: 1.625rem;
   color: ${(props) => props.theme['base-subtitle']};
 `
 
@@ -43,7 +42,7 @@ export const IconsContainer = styled.div`
   display: grid;
   grid-template-columns: 45% 55%;
   align-content: end;
-  height: 100%;
+  height: max-content;
 `
 
 export const ContentIconsContainer = styled.div`

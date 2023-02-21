@@ -5,6 +5,7 @@ export const CartContainer = styled.div`
   display: grid;
   grid-template-columns: 57% 43%;
   gap: 2rem;
+  max-width: 90rem;
 `
 
 export const ContainerCompleteYourOrder = styled.div`

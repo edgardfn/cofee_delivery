@@ -73,6 +73,7 @@ export const PaymentMethodButton = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${(props) => props.theme['base-hover']};
+    cursor: pointer;
   }
 
   &:focus {

@@ -55,6 +55,19 @@ export function coffeesReducer(state: CoffeesState, action: any) {
       }
     }
 
+    case ActionTypes.RESET_QUANTITY_ALL_COFFEES: {
+      return {
+        ...state,
+        coffees: state.coffees.map((coffee) => {
+          if (coffee.quantity > 0) {
+            return { ...coffee, quantity: 0 }
+          } else {
+            return coffee
+          }
+        }),
+      }
+    }
+
     default:
       return state
   }

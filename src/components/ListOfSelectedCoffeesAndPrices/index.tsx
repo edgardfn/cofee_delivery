@@ -1,5 +1,7 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AddressAndPaymentContext } from '../../contexts/AddressAndPaymentContext'
+import { CoffeesContext } from '../../contexts/CoffeesContext'
 import { ShoppingCartCardList } from '../ShoppingCartCardList'
 import {
   ConfirmButton,
@@ -25,9 +27,11 @@ export function ListOfSelectedCoffeesAndPrice() {
     finalOrderTotal,
     disableConfirmOrderButton,
   } = useContext(AddressAndPaymentContext)
+  const navigate = useNavigate()
 
-  const handleClick = () => {
-    console.log('clicou')
+  const handleClickConfirmOrder = () => {
+    console.log('caiu aqui na função')
+    navigate('/success')
   }
 
   return (
@@ -67,7 +71,7 @@ export function ListOfSelectedCoffeesAndPrice() {
       <ConfirmButtonContainer>
         <ConfirmButton
           disabled={disableConfirmOrderButton}
-          onClick={handleClick}
+          onClick={handleClickConfirmOrder}
         >
           confirmar pedido
         </ConfirmButton>

@@ -15,12 +15,13 @@ import cubano from '../../assets/Cubano.svg'
 import havaiano from '../../assets/havaiano.svg'
 import arabe from '../../assets/arabe.svg'
 import irlandes from '../../assets/irlandes.svg'
+import { HomeContainer } from './styles'
 
 export function Home() {
   return (
-    <div>
+    <HomeContainer>
       <IntroHome />
       <CoffeeList />
-    </div>
+    </HomeContainer>
   )
 }
