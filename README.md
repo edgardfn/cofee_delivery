@@ -6,6 +6,8 @@
 
 ## 💻 Sobre o projeto
 
+https://singular-genie-29deeb.netlify.app/
+
 Coffee Delivery :coffee: - é um sistema de cafeteria, com listagem de cafés para compras, podendo selecionar várias unidades de um único café, tem sesssão de carrinho de compras com endereço de entrega que faz a busca automática pelo cep usando a api [ViaCEP], com opção também de escolher a forma de pagamento e listagem dos cafés selecionados podendo alterar a quantidade e excluir todos de um café específico, mostrando também o valor total do pedido e ao finalizar é levado a página com dados como endereço de entrega selecionado e forma de pagamento.
 
 Projeto desenvolvido no curso da trilha Ignite da Rocketseat.
